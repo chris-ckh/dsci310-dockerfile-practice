@@ -1,3 +1,4 @@
+
 name: Docker Image CI
 
 on:
@@ -15,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file dockerfile-practice --tag dsci310-dockerfile-practice/dockerfile-practice:cowsay_0.5.0
+      run: docker build . --file dockerfile-practice --tag chrisckh/dsci310-dockerfile-practice:dockerfile-practice_cowsay_0.5.0
       
     - name: Log in to Docker Hub
       uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9 
@@ -24,4 +25,5 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     
     - name: push to Docker hub
-      run: docker push dsci310-dockerfile-practice/dockerfile-practice:cowsay_0.5.0
+      run: docker push chrisckh/dsci310-dockerfile-practice:dockerfile-practice_cowsay_0.5.0
+      
